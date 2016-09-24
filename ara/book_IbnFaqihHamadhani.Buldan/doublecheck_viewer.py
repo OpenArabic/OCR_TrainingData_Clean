@@ -76,19 +76,20 @@ def createHTMLs(lines):
             table.append('<tr align="center">%s</tr><hr>' % text)
             counter += 1
             if counter % lines == 0:
-                with open("gs_%06d.html" % counter, "w", encoding="utf8") as f9:
+                with open("%s%06d.html" % (pref, counter), "w", encoding="utf8") as f9:
                     f9.write(htmlTop + "\n\n".join(table) + htmlBot)
                 table = []
-                print("\tgs_%06d.html" % counter)
+                print("%s%06d.html" % (pref, counter))
                 #input("Check!")
 
     newCount = roundup(counter, lines)
-    with open("gs_%06d.html" % newCount, "w", encoding="utf8") as f9:
+    with open("%s%06d.html" % (pref, newCount), "w", encoding="utf8") as f9:
         f9.write(htmlTop + "\n\n".join(table) + htmlBot)
-        print("\tgs_%06d.html" % newCount)
+        print("%s%06d.html" % (pref, newCount))
         
 
-folder = "./5_goldStandard_a/"
+folder = "./5_goldStandard_b/"
+pref   = "gs_IbnFaqihBuldan_b_"
 #folder = os.path.abspath(folder)+"/"
 createHTMLs(100)    
 
