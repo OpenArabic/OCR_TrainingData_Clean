@@ -47,7 +47,7 @@ htmlBot = """
 
 </table>
 
-<a id="download_button" href="#" download="%s">SAVE CORRECTIONS</a>
+<a id="download_button">To Save: `Ctrl+s`, make sure to choose `Webpage, complete`!</a>
 
 </body>
 
@@ -95,7 +95,7 @@ def createHTMLs(lines):
                 corr = fileName[:-5]+"_corrected.html"
                 newHTML = htmlTop.replace(">fileName<", ">"+fileName[:-5]+"_corrected.html<")
                 with open(fileName, "w", encoding="utf8") as f9:
-                    f9.write(newHTML + "\n\n".join(table) + htmlBot % corr)
+                    f9.write(newHTML + "\n\n".join(table) + htmlBot)
                 table = []
                 print("%s%06d.html" % (pref, counter))
                 #input("Check!")
@@ -105,7 +105,7 @@ def createHTMLs(lines):
     corr = fileName[:-5]+"_corrected.html"
     newHTML = htmlTop.replace(">fileName<", ">"+fileName[:-5]+"_corrected.html<")
     with open(fileName, "w", encoding="utf8") as f9:
-        f9.write(newHTML + "\n\n".join(table) + htmlBot % corr)
+        f9.write(newHTML + "\n\n".join(table) + htmlBot)
 
         
 
