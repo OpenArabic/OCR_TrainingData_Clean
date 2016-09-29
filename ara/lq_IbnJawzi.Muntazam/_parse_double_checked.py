@@ -23,11 +23,13 @@ def parsing():
                     #print(l)
                     fn = l[15:28]
                     val = re.search(">(.*?)</p>", l).group(1)
-
-                    with open(tFolder+fn, "w", encoding="utf8") as ft2:
-                        ft2.write(val)
-                    imName = fn[:-7]+".png"
-                    shutil.copy2(sFolder+picFolder+imName, tFolder+imName)
+                    if val == "":
+                        pass
+                    else:
+                        with open(tFolder+fn, "w", encoding="utf8") as ft2:
+                            ft2.write(val)
+                        imName = fn[:-7]+".png"
+                        shutil.copy2(sFolder+picFolder+imName, tFolder+imName)
     # create a manifest
     man = os.listdir(tFolder)
     manNew = []
